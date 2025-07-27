@@ -9,3 +9,4 @@
 
 #include "cli.h"
 #include "Wizard.h"
+#include "ThreeWizards.h"
