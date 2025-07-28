@@ -76,6 +76,18 @@ Cli::addCommand("--search", [&](vector<string> args){
         return 0;
     });
 
+    Cli::addCommand("--kill", [&](vector<string> args){
+        if(args.size() < 2 || args.size() > 2) {
+            cout << "--kill <id>\n";
+            return 0;
+        }
+        Wizard* node = school.searchNode(school.root, stoi(args[1]));
+        if(!node) return cout << "Mago no encontrado.\n";
+        node->kill();
+        cout << "has matado al mago: %s\n", node->name.c_str();
+        return 0;
+    });
+
     cout << ">> ";
     do{
         vector<string> args;
