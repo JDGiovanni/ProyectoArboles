@@ -6,8 +6,8 @@ int main(int argc, char** argv) {
     cout << "--help for help\n";
 
     ThreeWizards school;
-    const bool success = school.loadCsv("list.csv");
-    cout << success ? "\nCSV cargado\n" : "Error al cargar el csv\n";
+    const bool success = school.loadCsv("magos.csv");
+    std::printf(success ? "\nCSV cargado\n" : "Error al cargar el csv\n");
 
     Cli::addCommand("--help", [](vector<string> args){ 
         cout << "Menu de ayuda\n";
@@ -101,26 +101,27 @@ int main(int argc, char** argv) {
             return 0;
         }
         node->kill();
-        cout << "has matado al mago: %s\n" << node->name.c_str() << endl;
+        cout << "has matado al mago: " << node->name.c_str() << endl;
         return 0;
     });
 
+    std::printf(">> ");
     do{
-        vector<string> args;
-        getline(cin, input);
+        std::vector<std::string> args;
+        std::getline(std::cin, input);
 
-        stringstream   parse(input);
-        string         param;
+        std::stringstream   parse(input);
+        std::string         param;
         
-        while(getline(parse, param, ' '))
+        while(std::getline(parse, param, ' '))
             args.push_back(param);
 
-        cout << string(1, '\n');
+        std::cout << std::string(1, '\n');
 
         if(Cli::find(args[0])) Cli::commands[args[0]](args);
-        else cout << "Command not found\n";
+        else std::printf("Command not found\n");
 
-        cout << "\n>> ";
+        std::printf("\n>> ");
     }while(true);
     return 0;
 }
