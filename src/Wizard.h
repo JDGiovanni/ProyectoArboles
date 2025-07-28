@@ -22,4 +22,14 @@ class Wizard{
 
         Wizard(uint8_t id);
         ~Wizard();
+
+        bool kill();
+        bool isOwner();
+        bool hasDisciples();
+        Wizard* getFirstDisciple();
+        Wizard* getFirstDiscipleAlive();
+        Wizard* getDiscipleFromTypeMagic(std::string type_magic);
+        std::string getTypeMagic();
+        void setOwner();
+        bool isDead();
 };
