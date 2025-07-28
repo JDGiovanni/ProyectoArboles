@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
         auto node = school.searchNode(school.root, stoi(args[1]));
         if(!node) {
             std::cout << "Mago no encontrado.\n";
-            return;
+            return 0;
         }
         node->showInfo();
         return 0;
@@ -98,10 +98,10 @@ int main(int argc, char** argv) {
         Wizard* node = school.searchNode(school.root, stoi(args[1]));
         if(!node) {
             std::cout << "Mago no encontrado.\n";
-            return;
+            return 0;
         }
         node->kill();
-        cout << "has matado al mago: %s\n", node->name.c_str();
+        cout << "has matado al mago: %s\n" << node->name.c_str() << endl;
         return 0;
     });
 
