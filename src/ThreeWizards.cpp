@@ -20,6 +20,12 @@ Wizard* ThreeWizards::searchNode(Wizard* node, int id){
     return searchNode(node->node->next, id);
 }
 
+Wizard* ThreeWizards::getFirstAlive(Wizard* wizard){ 
+    if(wizard->node->prev && !wizard->node->prev->isDead()) return ThreeWizards::getFirstAlive(wizard->node->prev);
+    if(wizard->node->next && !wizard->node->next->isDead()) return ThreeWizards::getFirstAlive(wizard->node->next);
+    return nullptr;
+}
+
 void ThreeWizards::showAllInfo(Wizard* mago, uint16_t flags){
 
     auto check = [&](Wizard* magic) -> void {
