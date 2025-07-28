@@ -12,7 +12,8 @@ class ThreeWizards {
 
     public:
         bool loadCsv(const std::string path);
-        void showAllInfo(Wizard* mago, uint16_t flags);
+        void showAllInfo(Wizard* Wizard, uint16_t flags);
         static Wizard* searchNode(Wizard* node, int id);
         void addNode(Wizard* wizard, Wizard* child);
+        static Wizard* getFirstAlive(Wizard* wizard);
 };
